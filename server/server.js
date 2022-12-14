@@ -1,10 +1,16 @@
 const express = require("express");
-const app = express();
-
 require("dotenv").config();
-
+const app = express();
 const dbConnect = require("./config/db");
-dbConnect(); // connects to db
+dbConnect();
 
-const port = process.env.PORT || 4001;
-app.listen(port, () => console.log("Server is up and running at port", port));
+app.use(express.json());
+app.use("/users", require("./routes/userRoutes"));
+app.get("/", (req, res) => {
+  res.send("Hello from Homepage");
+});
+
+const port = process.env.PORT || 4005;
+app.listen(port, () => {
+  console.log("server is up and running");
+});

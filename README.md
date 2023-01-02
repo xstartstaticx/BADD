@@ -1,2 +1,2 @@
 # BDD
-Group project: Boi, Danica, Daniel
+Group project: Boi, Antonio, Danica, Daniel

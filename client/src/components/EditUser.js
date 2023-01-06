@@ -23,9 +23,9 @@ const EditUser = () => {
     if (response.data.success) navigate("/dashboard");
   };
   return (
-    <div className="flex flex-col gap-5 h-screen items-center justify-center">
+    <div className="flex flex-col gap-4 h-screen items-center justify-center">
       <label htmlFor="">
-        Username:
+        <h2 className="p-2 font-bold text-lg"> Username : </h2>
         <input
           value={data.username}
           type="text"

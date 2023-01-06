@@ -13,16 +13,16 @@ function App() {
   };
 
   return (
-    <div className="h-[100vh] w-[70%] m-auto flex justify-center items-center">
+    <div className="h-[100vh] w-[100%] m-auto flex justify-center items-center">
       <div className="flex flex-col items-center justify-center border border-solid rounded-lg h-[625px]   ">
         <img
           src={Logo}
           className="w-[300px] p-5 border border-solid rounded-lg  "
           alt=""
         />
-        <h1 className="my-8 text-4xl">Main Title</h1>
+        <h1 className="my-8 text-4xl">BADD Healthcare</h1>
         <p className="w-[50%] text-[1rem] text-center ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Please register an account or login to use all the BADD features!
         </p>
         <div className="flex flex-row gap-8 mt-8">
           <button

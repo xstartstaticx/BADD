@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import ContextProvider from "./components/Context";
 import EditUser from "./components/EditUser";
+import Overview from "./components/Overview";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/overview" element={<Overview />} />
         <Route path="/dashboard/users/edit/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>

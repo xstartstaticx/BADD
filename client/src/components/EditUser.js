@@ -2,6 +2,14 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  Card,
+  Label,
+  TextInput,
+  Checkbox,
+  Button,
+  Select,
+} from "flowbite-react";
 const EditUser = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -23,40 +31,204 @@ const EditUser = () => {
     if (response.data.success) navigate("/dashboard");
   };
   return (
-    <div className="flex flex-col gap-4 h-screen items-center justify-center">
-      <label htmlFor="">
-        <h2 className="p-2 font-bold text-lg"> Username : </h2>
-        <input
-          value={data.username}
-          type="text"
-          onChange={(e) => setData({ ...data, username: e.target.value })}
-          className="border-2 border-black"
-        />
-      </label>
-      <label htmlFor="">
-        Email:
-        <input
-          value={data.email}
-          type="text"
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-          className="border-2 border-black"
-        />
-      </label>
-      <label htmlFor="">
-        Password:
-        <input
-          value={data.password}
-          type="text"
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-          className="border-2 border-black"
-        />
-      </label>
-      <button
-        onClick={handleEdit}
-        className="p-2 border-2 bg-slate-500 text-white"
-      >
-        Edit/Save
-      </button>
+    // <div className="flex flex-col gap-4 h-screen items-center justify-center">
+    //   <label htmlFor="">
+    //     <h2 className="p-2 font-bold text-lg"> Username : </h2>
+    //     <input
+    //       value={data.username}
+    //       type="text"
+    //       onChange={(e) => setData({ ...data, username: e.target.value })}
+    //       className="border-2 border-black"
+    //     />
+    //   </label>
+    //   <label htmlFor="">
+    //     Email:
+    //     <input
+    //       value={data.email}
+    //       type="text"
+    //       onChange={(e) => setData({ ...data, email: e.target.value })}
+    //       className="border-2 border-black"
+    //     />
+    //   </label>
+    //   <label htmlFor="">
+    //     Password:
+    //     <input
+    //       value={data.password}
+    //       type="text"
+    //       onChange={(e) => setData({ ...data, password: e.target.value })}
+    //       className="border-2 border-black"
+    //     />
+    //   </label>
+    //   <button
+    //     onClick={handleEdit}
+    //     className="p-2 border-2 bg-slate-500 text-white"
+    //   >
+    //     Edit/Save
+    //   </button>
+    // </div>
+
+    <div className="flex flex-col justify-center align-center w-[100vw] h-[100vh] border border-solid">
+      <div className="max-w-sm ">
+        <Card>
+          <form className="flex flex-col gap-4">
+            <Label value="Edit your details:" />
+
+            {/* Username */}
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="text1" value="Username" />
+              </div>
+              <TextInput
+                id="text1"
+                type="text"
+                placeholder="enter your username"
+                required={true}
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="email1" value="Email" />
+              </div>
+              <TextInput
+                id="email1"
+                type="email"
+                placeholder="name@flowbite.com"
+                required={true}
+              />
+            </div>
+
+            {/* Password */}
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="password1" value="Password" />
+              </div>
+              <TextInput id="password1" type="password" required={true} />
+            </div>
+
+            {/* Age */}
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="age1" value="Age" />
+              </div>
+              <div id="select">
+                <Select id="age1" required={true}>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                  <option value="">6</option>
+                  <option value="">7</option>
+                  <option value="">8</option>
+                  <option value="">9</option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                  <option value="">13</option>
+                  <option value="">14</option>
+                  <option value="">15</option>
+                  <option value="">16</option>
+                  <option value="">17</option>
+                  <option value="">18</option>
+                  <option value="">19</option>
+                  <option value="">20</option>
+                  <option value="">21</option>
+                  <option value="">22</option>
+                  <option value="">23</option>
+                  <option value="">24</option>
+                  <option value="">25</option>
+                  <option value="">26</option>
+                  <option value="">27</option>
+                  <option value="">28</option>
+                  <option value="">29</option>
+                  <option value="">30</option>
+                  <option value="">31</option>
+                  <option value="">32</option>
+                  <option value="">33</option>
+                  <option value="">34</option>
+                  <option value="">35</option>
+                  <option value="">36</option>
+                  <option value="">37</option>
+                  <option value="">38</option>
+                  <option value="">39</option>
+                  <option value="">40</option>
+                  <option value="">41</option>
+                  <option value="">42</option>
+                  <option value="">43</option>
+                  <option value="">44</option>
+                  <option value="">45</option>
+                  <option value="">46</option>
+                  <option value="">47</option>
+                  <option value="">48</option>
+                  <option value="">49</option>
+                  <option value="">50</option>
+                  <option value="">51</option>
+                  <option value="">52</option>
+                  <option value="">53</option>
+                  <option value="">54</option>
+                  <option value="">55</option>
+                  <option value="">56</option>
+                  <option value="">57</option>
+                  <option value="">58</option>
+                  <option value="">59</option>
+                  <option value="">60</option>
+                  <option value="">61</option>
+                  <option value="">62</option>
+                  <option value="">63</option>
+                  <option value="">64</option>
+                  <option value="">65</option>
+                  <option value="">66</option>
+                  <option value="">67</option>
+                  <option value="">68</option>
+                  <option value="">69</option>
+                  <option value="">70</option>
+                  <option value="">71</option>
+                  <option value="">72</option>
+                  <option value="">73</option>
+                  <option value="">74</option>
+                  <option value="">75</option>
+                  <option value="">76</option>
+                  <option value="">77</option>
+                  <option value="">78</option>
+                  <option value="">79</option>
+                  <option value="">80</option>
+                  <option value="">81</option>
+                  <option value="">82</option>
+                  <option value="">83</option>
+                  <option value="">84</option>
+                  <option value="">85</option>
+                  <option value="">86</option>
+                  <option value="">87</option>
+                  <option value="">88</option>
+                  <option value="">89</option>
+                  <option value="">90</option>
+                  <option value="">91</option>
+                  <option value="">92</option>
+                  <option value="">93</option>
+                  <option value="">94</option>
+                  <option value="">95</option>
+                  <option value="">96</option>
+                  <option value="">97</option>
+                  <option value="">98</option>
+                  <option value="">99</option>
+                  <option value="">100</option>
+                </Select>
+              </div>
+            </div>
+            {/* Diseases */}
+            {/* Remember Me */}
+            <div className="flex items-center gap-2">
+              <Checkbox id="remember" />
+              <Label htmlFor="remember">Remember me</Label>
+            </div>
+            <Button type="submit" onClick={handleEdit}>
+              Submit
+            </Button>
+          </form>
+        </Card>
+      </div>
     </div>
   );
 };

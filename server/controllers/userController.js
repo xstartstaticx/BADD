@@ -29,7 +29,7 @@ module.exports.login = async (req, res) => {
     res.send({ success: true, user });
   } catch (error) {
     console.log("Register Error", error.message);
-    res.send({ success: false, error: error.message });
+    res.send({ success: false, errorId: 1 });
   }
 };
 module.exports.list = async (req, res) => {

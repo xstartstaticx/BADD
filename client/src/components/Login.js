@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./register.css";
+import { Context } from "./Context";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { state, dispatchState } = useContext(Context);
+
   const [data, setData] = useState({
     username: "",
     password: "",
   });
   console.log(data);
+
   const handleLogin = async () => {
     const response = await axios.post("/users/login", data);
     console.log(response);
-    navigate("/dashboard");
+
+    if (response.data.success) {
+      dispatchState({
+        type: "login",
+        payload: response.data.user,
+      });
+
+      navigate("/dashboard");
+    } else {
+      if (response.data.errorId === 1) alert("Wrong email or password");
+    }
   };
   return (
     <div className="flex flex-col gap-4 h-screen items-center justify-center">

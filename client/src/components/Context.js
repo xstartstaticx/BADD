@@ -23,14 +23,16 @@ const ContextProvider = ({ children }) => {
         return { ...state, users: [...removeUser] };
 
       default:
-        return;
+        return state;
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatchState] = useReducer(reducer, initialState);
 
   return (
-    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
+    <Context.Provider value={{ state, dispatchState }}>
+      {children}
+    </Context.Provider>
   );
 };
 

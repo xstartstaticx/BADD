@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "./App.css";
 import Logo from "./images/caduceus.png";
+import Overview from "./components/Overview";
 
 function App() {
   const navigate = useNavigate();

@@ -28,10 +28,12 @@ const Overview = () => {
           <p className="w-[10rem]"> Username: {item.username}</p>
           <p className="w-[10rem]"> Email: {item.email}</p>
           <p className="w-[10rem]"> Age: {item.age}</p>
-          <p className="w-[10rem]"> Diseases: {item.diseases}</p>
+          <p className="w-[10rem]">
+            Medical Conditions: {item.medicalConditions}
+          </p>
           <p className="w-[10rem]"> Allergies: {item.allergies}</p>
           <p className="w-[10rem]"> Medication: {item.medication}</p>
-          <p className="w-[10rem]"> Bloodtype: {item.bloodtype}</p>
+          <p className="w-[10rem]"> Blood Type: {item.bloodType}</p>
           <p className="w-[10rem]"> Weight: {item.weight}</p>
           <p className="w-[10rem]"> Height: {item.height}</p>
           <p className="w-[10rem]"> Languages: {item.languages}</p>

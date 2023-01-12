@@ -24,12 +24,19 @@ module.exports.register = async (req, res) => {
 };
 module.exports.login = async (req, res) => {
   try {
-    console.log("Hello from register", req.body);
+    console.log("Hello from login", req.body);
+
     const user = await User.findOne(req.body).select("-password -__v");
+
+    console.log("login user", user);
+
+    if (!user) return res.send({ success: false, errorId: 1 });
+
     res.send({ success: true, user });
   } catch (error) {
-    console.log("Register Error", error.message);
-    res.send({ success: false, errorId: 1 });
+    console.log("Login Error", error.message);
+
+    res.send({ success: false, error: error.message });
   }
 };
 module.exports.list = async (req, res) => {

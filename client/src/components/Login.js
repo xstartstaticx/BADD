@@ -49,6 +49,7 @@ const Login = () => {
       </label>
       <br />
       <button
+        type="submit"
         onClick={handleLogin}
         className="p-3 px-[5rem] custom-button font-bold"
       >

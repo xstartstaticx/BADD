@@ -9,6 +9,8 @@ import {
   Checkbox,
   Button,
   Select,
+  Radio,
+  Dropdown,
 } from "flowbite-react";
 const EditUser = () => {
   const { id } = useParams();
@@ -217,7 +219,68 @@ const EditUser = () => {
                 </Select>
               </div>
             </div>
-            {/* Diseases */}
+
+            {/* Medical Conditions */}
+            {/* Allergies */}
+            {/* Medications */}
+            {/* Blood Type */}
+            <Dropdown
+              label="Blood Type"
+              placement="right"
+              dismissOnClick={false}
+            >
+              <fieldset className="flex flex-col gap-4" id="radio">
+                <legend className="text-[.9rem] text-black font-bold ">
+                  Select your blood type
+                </legend>
+
+                <div className="flex items-center gap-2">
+                  <Radio
+                    id="a-pos"
+                    name="blood-types"
+                    value="APOS"
+                    defaultChecked={true}
+                  />
+                  <Label htmlFor="a-pos">A+</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="a-neg" name="blood-types" value="ANEG" />
+                  <Label htmlFor="a-neg">A-</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="b-pos" name="blood-types" value="BPOS" />
+                  <Label htmlFor="b-pos">B+</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="b-neg" name="blood-types" value="BNEG" />
+                  <Label htmlFor="b-neg">B-</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="o-pos" name="blood-types" value="OPOS" />
+                  <Label htmlFor="o-pos">O+</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="o-neg" name="blood-types" value="ONEG" />
+                  <Label htmlFor="o-neg">O-</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="ab-pos" name="blood-types" value="ABPOS" />
+                  <Label htmlFor="ab-pos">AB+</Label>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Radio id="ab-neg" name="blood-types" value="ABNEG" />
+                  <Label htmlFor="ab-neg">AB-</Label>
+                </div>
+              </fieldset>
+            </Dropdown>
+
             {/* Remember Me */}
             <div className="flex items-center gap-2">
               <Checkbox id="remember" />

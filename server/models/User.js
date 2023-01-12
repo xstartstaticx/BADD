@@ -24,7 +24,7 @@ const userSchema = new Schema({
     type: Number,
     required: true,
   },
-  diseases: {
+  medicalConditions: {
     type: String,
   },
   allergies: {
@@ -33,7 +33,7 @@ const userSchema = new Schema({
   medication: {
     type: String,
   },
-  bloodtype: {
+  bloodType: {
     type: String,
     required: true,
   },

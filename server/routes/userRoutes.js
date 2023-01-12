@@ -21,4 +21,5 @@ router.get("/list", userController.list);
 router.delete("/delete/:id", userController.delete);
 router.get("/findOne/:id", userController.findOne);
 router.patch("/edit", userController.edit);
+router.post("/adduser", userController.addUser);
 module.exports = router;

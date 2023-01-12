@@ -28,7 +28,7 @@ const Register = () => {
     const response = await axios.post("/users/register", data);
     console.log("🚀 ~ handleRegister ~ response", response);
 
-    if (response.data.success) navigate("/login");
+    if (response.data.success === true) navigate("/login");
   };
 
   //   const handleChange = (e) => {
@@ -41,13 +41,13 @@ const Register = () => {
   return (
     <div className="h-[100vh]  m-auto flex justify-center items-center">
       <div className="flex flex-col items-center justify-center border-4  rounded-lg h-[500px] w-[400px]  border-solid border-[#1eb7b7] bg-[#116666] ">
-      <img
-        src={Logo}
-        className="w-[100px] h-[100px] p-2 mb-5 border-2 border-solid rounded-lg bg-[#e8f9f9] "
-        alt=""
-      />
-      <label htmlFor="">
-        <h2 className="p-2 font-bold text-lg"> Username : </h2>
+        <img
+          src={Logo}
+          className="w-[100px] h-[100px] p-2 mb-5 border-2 border-solid rounded-lg bg-[#e8f9f9] "
+          alt=""
+        />
+        <label htmlFor="">
+          <h2 className="p-2 font-bold text-lg"> Username : </h2>
 
           <input
             type="text"
@@ -61,13 +61,13 @@ const Register = () => {
             rounded-xl
             "
           />
-      </label>
-      <label htmlFor="">
-        <h2 className="p-2 font-bold text-lg"> Email : </h2>
-        <input
-          type="email"
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-          className="w-full px-5 py-3  
+        </label>
+        <label htmlFor="">
+          <h2 className="p-2 font-bold text-lg"> Email : </h2>
+          <input
+            type="email"
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+            className="w-full px-5 py-3  
           bg-[#062828]
           border-2
           border-[#d2f4f4]
@@ -75,14 +75,14 @@ const Register = () => {
           focus:border-[#116666]
           rounded-xl
           "
-        />
-      </label>
-      <label htmlFor="">
-        <h2 className="p-2 font-bold text-lg">Password : </h2>
-        <input
-          type="text"
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-          className="w-full px-5 py-3  
+          />
+        </label>
+        <label htmlFor="">
+          <h2 className="p-2 font-bold text-lg">Password : </h2>
+          <input
+            type="text"
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+            className="w-full px-5 py-3  
           bg-[#062828]
           border-2
           border-[#d2f4f4]
@@ -91,18 +91,18 @@ const Register = () => {
           rounded-xl
         
           "
-        />
-      </label>
+          />
+        </label>
 
-      {/* <label className="border-2 border-black p-2 cursor-pointer rounded-md bg-red-200">
+        {/* <label className="border-2 border-black p-2 cursor-pointer rounded-md bg-red-200">
         Select Image
         <input onChange={handleChange} className="hidden" type="file" />
       </label>
       <img src={data.image} className="w-[300px] h-[300px]" alt="" /> */}
-      <br />
-      <button
-        onClick={handleRegister}
-        className="p-3 px-[5rem] font-bold
+        <br />
+        <button
+          onClick={handleRegister}
+          className="p-3 px-[5rem] font-bold
           px-5 py-3  
           bg-[#062828]
           border-2
@@ -112,9 +112,9 @@ const Register = () => {
           rounded-2xl
           motion-safe:hover:-translate-x-0.5 motion-safe:transition bg-[#116666] hover:border-[#EE1442] px-5 py-2 text-[1rem] border-2 
         "
-      >
-        Register
-      </button>
+        >
+          Register
+        </button>
       </div>
     </div>
   );

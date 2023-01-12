@@ -24,7 +24,7 @@ const Login = () => {
         payload: response.data.user,
       });
 
-      navigate("/overview/" + response.data.user._id);
+      navigate("/adduser/" + response.data.user._id);
     } else {
       if (response.data.errorId === 1) alert("Wrong email or password");
     }

@@ -19,7 +19,7 @@ root.render(
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/overview" element={<Overview />} />
+        <Route path="/overview/:id" element={<Overview />} />
         <Route path="/dashboard/users/edit/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>

@@ -69,8 +69,8 @@ const EditUser = () => {
     //   </button>
     // </div>
 
-    <div className="flex flex-col justify-center align-center w-[100vw] h-[100vh] border border-solid">
-      <div className="max-w-sm ">
+    <div className="flex flex-col justify-center align-center w-[100vw]  border border-solid min-h-screen ">
+      <div className="w-[375px] m-auto ">
         <Card>
           <form className="flex flex-col gap-4">
             <Label value="Edit your details:" />

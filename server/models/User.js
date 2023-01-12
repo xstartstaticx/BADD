@@ -16,10 +16,15 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    unique: true,
   },
   // step 2 user information
 
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
   age: {
     type: Number,
     //required: true,

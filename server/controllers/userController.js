@@ -14,7 +14,7 @@ module.exports.register = async (req, res) => {
     // req.body.image = req.file.filename;
     // console.log("Updated req body", req.body);
     const newUser = await User.create(req.body);
-    await User.findOne(req.body).select("-password -__v");
+
     console.log("newuser", newUser);
     res.send({ success: true });
   } catch (error) {
@@ -31,7 +31,7 @@ module.exports.login = async (req, res) => {
     console.log("login user", user);
 
     if (!user) return res.send({ success: false, errorId: 1 });
-
+    // errorId: 1 - user not found
     res.send({ success: true, user });
   } catch (error) {
     console.log("Login Error", error.message);
@@ -86,6 +86,27 @@ module.exports.edit = async (req, res) => {
     res.send({ success: true });
   } catch (error) {
     console.log("Register Error", error.message);
+    res.send({ success: false, error: error.message });
+  }
+};
+
+module.exports.addUser = async (req, res) => {
+  try {
+    console.log(":rocket: ~ user edit hello", req.body);
+    const { _id, ...user } = req.body;
+    console.log(":rocket: ~ _id, user", _id, user);
+
+    // // findByIdAndUpdate({filter}, {updated resource}, {options})
+    const newUser = await User.findByIdAndUpdate(
+      { _id },
+      { ...user },
+      { new: true }
+    );
+    console.log(":rocket: ~ module.exports.edit= ~ newUser", newUser);
+    if (!newUser) return res.send({ success: false, errorId: 1 });
+    res.send({ success: true, user: newUser });
+  } catch (error) {
+    console.log(":rocket: ~ user edit error", error.message);
     res.send({ success: false, error: error.message });
   }
 };

@@ -22,7 +22,7 @@ const userSchema = new Schema({
 
   age: {
     type: Number,
-    required: true,
+    //required: true,
   },
   medicalConditions: {
     type: String,
@@ -35,19 +35,19 @@ const userSchema = new Schema({
   },
   bloodType: {
     type: String,
-    required: true,
+    //required: true,
   },
   weight: {
     type: Number,
-    require: true,
+    //require: true,
   },
   height: {
     type: Number,
-    required: true,
+    //required: true,
   },
   languages: {
     type: String,
-    required: true,
+    //required: true,
   },
 });
 module.exports = mongoose.model("User", userSchema);

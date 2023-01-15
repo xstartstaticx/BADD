@@ -32,19 +32,21 @@ const Overview = () => {
           <Card>
             <h1 className="text-2xl text-[black] m-auto">Health Pass</h1>
             <form className="flex flex-col gap-4 h-[500px] overflow-y-auto">
-              <div className="bg-[#a6eaea] rounded-lg ">
-                <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+              
+              <div className="bg-[#a6eaea] rounded-lg h-[100px]">
+                <div className="flex gap-2 my-5 items-center p-2" key={idx}>
                   <div className="">
-                        <Label htmlFor="age1" value="Name:" />
-                        <p className="w-[10rem] text-[black]">{item.username}</p>
+                        <Label htmlFor="age1" value="Name:"  />
+                        <p className="w-[10rem]  bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.username}</p>
                   </div>
                 </div>
               </div>
+              
               <div>
                 <div className="flex gap-4 my-5 items-center p-4" key={idx}>
                   <div className="">
-                        <Label htmlFor="age1" value="Email:" />
-                        <p className="w-[10rem] text-[black]">{item.email}</p>
+                        <Label htmlFor="age1" value="Email:" className="bg-[#d2f4f4]" />
+                        <p className="w-[10rem] bg-[#d2f4f4] text-[black]">{item.email}</p>
                   </div>
                 </div>
               </div>

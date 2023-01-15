@@ -25,11 +25,13 @@ const Login = () => {
       });
 
       navigate("/adduser/" + response.data.user._id);
+      // navigate("/overview/" + response.data.user._id);
     } else {
       if (response.data.errorId === 1) alert("Wrong email or password");
     }
   };
   return (
+    
     <div className="flex flex-col gap-4 h-screen items-center justify-center">
       <label htmlFor="">
         <h2 className="p-2 font-bold text-lg"> Username : </h2>

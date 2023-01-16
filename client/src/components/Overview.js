@@ -32,7 +32,7 @@ const Overview = () => {
         <div className="w-[375px] m-auto ">
           <Card>
             <div className="flex justify-center">
-              <h1 className="text-2xl text-[#d2f4f4] bg-[#116666] p-[20px] rounded-lg ">Health Pass</h1>
+              <h1 className="text-2xl text-[#d2f4f4] bg-[#116666] p-[20px] rounded-lg  ">Health Pass</h1>
               <img
               src={Logo}
               className=" w-[75px] border-2 border-solid rounded-lg bg-[#e8f9f9]  "

@@ -13,7 +13,6 @@ import {
   Dropdown,
 } from "flowbite-react";
 import Logo from "../images/caduceus.png";
-
 const Overview = () => {
   const { id } = useParams();
   const { state, dispatchState } = useContext(Context);
@@ -24,194 +23,133 @@ const Overview = () => {
     };
     getData();
   }, [dispatchState]);
-
   return (
     <div className="flex flex-col justify-center align-center w-[100vw]  border border-solid min-h-screen ">
-<<<<<<< HEAD
       {state?.users
         ?.filter((item) => item._id === id)
         .map((item, idx) => (
           <div className="w-[375px] m-auto ">
             <Card>
-              <h1 className="text-2xl text-[black] m-auto">Health Pass</h1>
-              <form className="flex flex-col gap-4 h-[500px] overflow-y-auto">
-                <div className="bg-[#a6eaea] rounded-lg ">
-                  <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+              <div className="flex justify-center">
+                <h1 className="text-2xl text-[#D2F4F4] bg-[#116666] p-[20px] rounded-lg  ">
+                  Health Pass
+                </h1>
+                <img
+                  src={Logo}
+                  className=" w-[75px] border-2 border-solid rounded-lg bg-[#E8F9F9]  "
+                  alt=""
+                />
+              </div>
+              <form className="flex flex-col gap-1 h-[500px] overflow-y-auto  ">
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
                     <div className="">
-                      <Label htmlFor="age1" value="Name:" />
-                      <p className="w-[10rem] text-[black]">{item.username}</p>
+                      {/* <Label htmlFor="name" value="Name:"  /> */}
+                      <p className="text-xl">Name:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.username}
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
                     <div className="">
-                      <Label htmlFor="age1" value="Email:" />
-                      <p className="w-[10rem] text-[black]">{item.email}</p>
+                      {/* <Label htmlFor="name" value="Name:"  /> */}
+                      <p className="text-xl">Age:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.age}
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
                     <div className="">
-                      <Label htmlFor="age1" value="First Name:" />
-                      <p className="w-[10rem] text-[black]">{item.firstName}</p>
+                      {/* <Label htmlFor="name" value="Name:"  /> */}
+                      <p className="text-xl">Age:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.age}
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
                     <div className="">
-                      <Label htmlFor="age1" value="Age:" />
-                      <p className="w-[10rem] text-[black]">{item.age}</p>
+                      <p className="text-xl">Medical Conditions:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.medicalConditions}
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
                     <div className="">
-                      <Label htmlFor="age1" value="Height:" />
-                      <p className="w-[10rem] text-[black]">{item.height}</p>
+                      <p className="text-xl">Allergies:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.allergies}
+                      </p>
                     </div>
-=======
-      {state?.users?.filter(item => item._id === id).map((item,idx) => (
-        <div className="w-[375px] m-auto ">
-          <Card>
-            <div className="flex justify-center">
-              <h1 className="text-2xl text-[#d2f4f4] bg-[#116666] p-[20px] rounded-lg  ">Health Pass</h1>
-              <img
-              src={Logo}
-              className=" w-[75px] border-2 border-solid rounded-lg bg-[#e8f9f9]  "
-              alt=""
-            />
-            </div>
-            
-            <form className="flex flex-col gap-1 h-[500px] overflow-y-auto  ">
-              
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        {/* <Label htmlFor="name" value="Name:"  /> */}
-                        <p className="text-xl">Name:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.username}</p>
->>>>>>> 168ff35d2fa6d28d2de000a445ac7b898c4fa436
                   </div>
                 </div>
-
-<<<<<<< HEAD
-                <div>
-                  <div className="flex gap-4 my-5 items-center p-4" key={idx}>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
                     <div className="">
-                      <Label htmlFor="age1" value="Weight:" />
-                      <p className="w-[10rem] text-[black]">{item.weight}</p>
+                      <p className="text-xl">Medication:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.medication}
+                      </p>
                     </div>
-=======
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        {/* <Label htmlFor="name" value="Name:"  /> */}
-                        <p className="text-xl">Age:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.age}</p>
->>>>>>> 168ff35d2fa6d28d2de000a445ac7b898c4fa436
+                  </div>
+                </div>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
+                    <div className="">
+                      <p className="text-xl">Bloodtype:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.bloodType}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
+                    <div className="">
+                      <p className="text-xl">Weight:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.weight}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#116666] rounded-lg h-[100px]">
+                  <div className="flex my-5 items-center p-1" key={idx}>
+                    <div className="">
+                      <p className="text-xl">Height:</p>
+                      <p className="w-[10rem] text-base bg-[#D2F4F4] rounded p-[10px] text-[black]">
+                        {item.height}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </form>
               <div className="flex justify-center sticky ">
                 <Link to={"/Dashboard/users/edit/" + item._id}>
-                  <button className="border-2 border-black bg-blue-400 p-2">
+                  <button className="border-2 border-black bg-[#116666] rounded-lg p-2">
                     Edit
                   </button>
                 </Link>
               </div>
-<<<<<<< HEAD
             </Card>
           </div>
         ))}
     </div>
   );
-=======
-
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        {/* <Label htmlFor="name" value="Name:"  /> */}
-                        <p className="text-xl">Age:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.age}</p>
-                  </div>
-                </div>
-              </div>
-              
-
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        <p className="text-xl">Medical Conditions:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.medicalConditions}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        <p className="text-xl">Allergies:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.allergies}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        <p className="text-xl">Medication:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.medication}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        <p className="text-xl">Bloodtype:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.bloodType}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        <p className="text-xl">Weight:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.weight}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-[#116666] rounded-lg h-[100px]">
-                <div className="flex my-5 items-center p-1" key={idx}>
-                  <div className="">
-                        <p className="text-xl">Height:</p>
-                        <p className="w-[10rem] text-base bg-[#d2f4f4] rounded p-[10px] text-[black]">{item.height}</p>
-                  </div>
-                </div>
-              </div>
-              
-            
-            </form>
-            <div className="flex justify-center sticky ">
-              <Link to={"/Dashboard/users/edit/" + item._id}>
-                <button className="border-2 border-black bg-[#116666] rounded-lg p-2">
-                Edit
-                </button>
-              </Link>
-              </div>
-          </Card>
-      </div>
-      ))}   
-  </div>)
->>>>>>> 168ff35d2fa6d28d2de000a445ac7b898c4fa436
 };
 export default Overview;
-
-/* 
+/*
 <Link to={"/Dashboard/users/edit/" + item._id}>
 <button className="border-2 border-black bg-blue-400 p-2">
   Edit

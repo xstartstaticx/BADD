@@ -39,10 +39,11 @@ const Login = () => {
           className=" w-full px-2 py-3 custom-input border border-slate-500 rounded-md font-bold  placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
         />
       </label>
+
       <label htmlFor="">
         <h2 className="p-2 font-bold text-lg"> Password : </h2>
         <input
-          type="text"
+          type="password"
           onChange={(e) => setData({ ...data, password: e.target.value })}
           className="w-full px-2 py-3 custom-input border border-slate-500 rounded-md font-bold  placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
         />

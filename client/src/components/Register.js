@@ -25,7 +25,10 @@ const Register = () => {
   //   const response = await axios.post("/users/register", formdata);
   //   navigate("/login");
   // };
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+
+    e.preventDefault()
+
     const response = await axios.post("/users/register", data);
     console.log("🚀 ~ handleRegister ~ response", response);
 
@@ -41,7 +44,7 @@ const Register = () => {
   //   };
   return (
     <div className="flex flex-col justify-center align-center w-[100vw]  border border-solid min-h-screen ">  
-    <div className="flex w-[375px] m-auto justify-center align-center ">
+    <div className="w-[390px] m-auto justify-center align-center ">
       <Card>
         <div className="flex justify-center ">
               <h1 className="text-2xl text-[#d2f4f4] bg-[#116666] p-[20px] rounded-lg  ">Register</h1>

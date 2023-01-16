@@ -13,6 +13,7 @@ import {
   Dropdown,
 } from "flowbite-react";
 import { Context } from "./Context";
+import Logo from "../images/caduceus.png";
 
 const AddUser = () => {
   const { id } = useParams();
@@ -41,7 +42,8 @@ const AddUser = () => {
     getData();
   }, []);
 
-  const handleAdd = async () => {
+  const handleAdd = async (e) => {
+    e.preventDefault()
     const response = await axios.post("/users/adduser", data);
 
     console.log("response is:", response);
@@ -59,10 +61,20 @@ const AddUser = () => {
 
   console.log(data);
   return (
-    <div className="flex flex-col justify-center align-center w-[100vw]  border border-solid min-h-screen ">
-      <div className="w-[375px] m-auto ">
-        <Card>
-          <form className="flex flex-col gap-4">
+    <div className="flex flex-col justify-center align-center w-[100vw]  border border-solid min-h-screen  ">
+      <div className="m-auto justify-center align-center h-[700px]">
+        <Card className=" w-[390px] h-[700px] ">
+        <div className="flex justify-center">
+                <h1 className="text-2xl text-[#D2F4F4] bg-[#116666] p-[20px] rounded-lg  ">
+                  Health Pass
+                </h1>
+                <img
+                  src={Logo}
+                  className=" w-[75px] border-2 border-solid rounded-lg bg-[#E8F9F9]  "
+                  alt=""
+                />
+              </div>
+          <form className="flex flex-col gap-4 overflow-y-auto">
             <Label value="Edit your details:" />
 
             {/* First Name */}
@@ -262,11 +274,12 @@ const AddUser = () => {
             </div>
 
             {/* Blood Type */}
-            {/* <Dropdown
+           <Dropdown
               label="Blood Type:"
               placement="right"
               dismissOnClick={false}
-            >
+             
+              >
               <fieldset
                 className="flex flex-col gap-4"
                 id="radio"
@@ -323,7 +336,7 @@ const AddUser = () => {
                   <Label htmlFor="ab-neg">AB-</Label>
                 </div>
               </fieldset>
-            </Dropdown> */}
+            </Dropdown> 
 
             {/* Weight */}
             <div>
@@ -382,10 +395,14 @@ const AddUser = () => {
               </div>
             </div>
 
-            <Button type="submit" onClick={handleAdd}>
+            {/* <Button type="submit" onClick={handleAdd}  className="bg-[#116666]">
               Submit
-            </Button>
+            </Button> */}
+            
           </form>
+          <button type="submit" onClick={handleAdd}  className="text-lg border-2 border-black bg-[#116666] hover:border-[#EE1442]  rounded-lg p-2">
+                    Submit
+                  </button>
         </Card>
       </div>
     </div>

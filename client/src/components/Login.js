@@ -16,9 +16,13 @@ const Login = () => {
   });
   console.log(data);
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+
+    e.preventDefault()
     const response = await axios.post("/users/login", data);
     console.log(response);
+
+
 
     if (response.data.success) {
       dispatchState({
@@ -26,16 +30,16 @@ const Login = () => {
         payload: response.data.user,
       });
 
-      navigate("/adduser/" + response.data.user._id);
-     // navigate("/overview/" + response.data.user._id);
+      //navigate("/adduser/" + response.data.user._id);
+     navigate("/overview/" + response.data.user._id);
     } else {
       if (response.data.errorId === 1) alert("Wrong email or password");
     }
   };
   return (
     <div className="flex flex-col justify-center align-center w-[100vw]  border border-solid min-h-screen ">
-      <div className="flex w-[375px] m-auto justify-center align-center ">
-        <Card>
+      <div className="flex  m-auto justify-center align-center">
+        <Card className=" w-[390px] ">
           <div className="flex justify-center ">
             <h1 className="text-2xl text-[#d2f4f4] bg-[#116666] p-[20px] rounded-lg  ">
               Login

@@ -22,6 +22,9 @@ const ContextProvider = ({ children }) => {
         ];
         return { ...state, users: [...removeUser] };
 
+      case "addToUser":
+        return { ...state, user: { ...action.payload } };
+
       default:
         return state;
     }

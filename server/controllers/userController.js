@@ -92,9 +92,9 @@ module.exports.edit = async (req, res) => {
 
 module.exports.addUser = async (req, res) => {
   try {
-    console.log(":rocket: ~ user edit hello", req.body);
+    // console.log(":rocket: ~ user edit hello", req.body);
     const { _id, ...user } = req.body;
-    console.log(":rocket: ~ _id, user", _id, user);
+    // console.log(":rocket: ~ _id, user", _id, user);
 
     // // findByIdAndUpdate({filter}, {updated resource}, {options})
     const newUser = await User.findByIdAndUpdate(
@@ -102,9 +102,12 @@ module.exports.addUser = async (req, res) => {
       { ...user },
       { new: true }
     );
-    console.log(":rocket: ~ module.exports.edit= ~ newUser", newUser);
-    if (!newUser) return res.send({ success: false, errorId: 1 });
-    res.send({ success: true, user: newUser });
+    // console.log(":rocket: ~ module.exports.edit= ~ newUser", newUser);
+    if (!newUser) {
+      return res.send({ success: false, errorId: 1 });
+    } else {
+      res.send({ success: true, user: newUser });
+    }
   } catch (error) {
     console.log(":rocket: ~ user edit error", error.message);
     res.send({ success: false, error: error.message });

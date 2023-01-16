@@ -35,7 +35,7 @@ const userSchema = new Schema({
   allergies: {
     type: String,
   },
-  medication: {
+  medications: {
     type: String,
   },
   bloodType: {
@@ -51,7 +51,7 @@ const userSchema = new Schema({
     //required: true,
   },
   languages: {
-    type: String,
+    type: [],
     //required: true,
   },
 });

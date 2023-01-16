@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -12,20 +12,25 @@ import {
   Radio,
   Dropdown,
 } from "flowbite-react";
+import { Context } from "./Context";
+
 const AddUser = () => {
   const { id } = useParams();
+
   const navigate = useNavigate();
+  const { state, dispatchState } = useContext(Context);
+
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
-    age: "",
+    age: 0,
     medicalConditions: "",
     allergies: "",
     medications: "",
-    bloodType: "",
+    bloodType: "APOS",
     weight: "",
     height: "",
-    languages: "",
+    languages: [],
   });
 
   useEffect(() => {
@@ -34,12 +39,22 @@ const AddUser = () => {
       if (response.data.success) setData(response.data.user);
     };
     getData();
-  }, [id]);
+  }, []);
 
   const handleAdd = async () => {
     const response = await axios.post("/users/adduser", data);
-    console.log(response);
-    if (response.data.success) navigate("/dashboard");
+
+    console.log("response is:", response);
+
+    if (response.data.success) {
+      dispatchState({
+        type: "addToUser",
+        payload: response.data.user,
+      });
+      navigate("/overview/" + response.data.user._id);
+    } else {
+      alert("There was an error. Please try again.");
+    }
   };
 
   console.log(data);
@@ -86,107 +101,111 @@ const AddUser = () => {
                 <Label htmlFor="age" value="Age:" />
               </div>
               <div id="select">
-                <Select id="age" required={true}>
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                  <option value="">6</option>
-                  <option value="">7</option>
-                  <option value="">8</option>
-                  <option value="">9</option>
-                  <option value="">10</option>
-                  <option value="">11</option>
-                  <option value="">12</option>
-                  <option value="">13</option>
-                  <option value="">14</option>
-                  <option value="">15</option>
-                  <option value="">16</option>
-                  <option value="">17</option>
-                  <option value="">18</option>
-                  <option value="">19</option>
-                  <option value="">20</option>
-                  <option value="">21</option>
-                  <option value="">22</option>
-                  <option value="">23</option>
-                  <option value="">24</option>
-                  <option value="">25</option>
-                  <option value="">26</option>
-                  <option value="">27</option>
-                  <option value="">28</option>
-                  <option value="">29</option>
-                  <option value="">30</option>
-                  <option value="">31</option>
-                  <option value="">32</option>
-                  <option value="">33</option>
-                  <option value="">34</option>
-                  <option value="">35</option>
-                  <option value="">36</option>
-                  <option value="">37</option>
-                  <option value="">38</option>
-                  <option value="">39</option>
-                  <option value="">40</option>
-                  <option value="">41</option>
-                  <option value="">42</option>
-                  <option value="">43</option>
-                  <option value="">44</option>
-                  <option value="">45</option>
-                  <option value="">46</option>
-                  <option value="">47</option>
-                  <option value="">48</option>
-                  <option value="">49</option>
-                  <option value="">50</option>
-                  <option value="">51</option>
-                  <option value="">52</option>
-                  <option value="">53</option>
-                  <option value="">54</option>
-                  <option value="">55</option>
-                  <option value="">56</option>
-                  <option value="">57</option>
-                  <option value="">58</option>
-                  <option value="">59</option>
-                  <option value="">60</option>
-                  <option value="">61</option>
-                  <option value="">62</option>
-                  <option value="">63</option>
-                  <option value="">64</option>
-                  <option value="">65</option>
-                  <option value="">66</option>
-                  <option value="">67</option>
-                  <option value="">68</option>
-                  <option value="">69</option>
-                  <option value="">70</option>
-                  <option value="">71</option>
-                  <option value="">72</option>
-                  <option value="">73</option>
-                  <option value="">74</option>
-                  <option value="">75</option>
-                  <option value="">76</option>
-                  <option value="">77</option>
-                  <option value="">78</option>
-                  <option value="">79</option>
-                  <option value="">80</option>
-                  <option value="">81</option>
-                  <option value="">82</option>
-                  <option value="">83</option>
-                  <option value="">84</option>
-                  <option value="">85</option>
-                  <option value="">86</option>
-                  <option value="">87</option>
-                  <option value="">88</option>
-                  <option value="">89</option>
-                  <option value="">90</option>
-                  <option value="">91</option>
-                  <option value="">92</option>
-                  <option value="">93</option>
-                  <option value="">94</option>
-                  <option value="">95</option>
-                  <option value="">96</option>
-                  <option value="">97</option>
-                  <option value="">98</option>
-                  <option value="">99</option>
-                  <option value="">100</option>
+                <Select
+                  id="age"
+                  required={true}
+                  onChange={(e) => setData({ ...data, age: e.target.value })}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                  <option value="60">60</option>
+                  <option value="61">61</option>
+                  <option value="62">62</option>
+                  <option value="63">63</option>
+                  <option value="64">64</option>
+                  <option value="65">65</option>
+                  <option value="66">66</option>
+                  <option value="67">67</option>
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                  <option value="71">71</option>
+                  <option value="72">72</option>
+                  <option value="73">73</option>
+                  <option value="74">74</option>
+                  <option value="75">75</option>
+                  <option value="76">76</option>
+                  <option value="77">77</option>
+                  <option value="78">78</option>
+                  <option value="79">79</option>
+                  <option value="80">80</option>
+                  <option value="81">81</option>
+                  <option value="82">82</option>
+                  <option value="83">83</option>
+                  <option value="84">84</option>
+                  <option value="85">85</option>
+                  <option value="86">86</option>
+                  <option value="87">87</option>
+                  <option value="88">88</option>
+                  <option value="89">89</option>
+                  <option value="90">90</option>
+                  <option value="91">91</option>
+                  <option value="92">92</option>
+                  <option value="93">93</option>
+                  <option value="94">94</option>
+                  <option value="95">95</option>
+                  <option value="96">96</option>
+                  <option value="97">97</option>
+                  <option value="98">98</option>
+                  <option value="99">99</option>
+                  <option value="100">100</option>
                 </Select>
               </div>
             </div>
@@ -204,6 +223,9 @@ const AddUser = () => {
                 type="text"
                 placeholder="separate by comma"
                 required={true}
+                onChange={(e) =>
+                  setData({ ...data, medicalConditions: e.target.value })
+                }
               />
             </div>
 
@@ -217,6 +239,9 @@ const AddUser = () => {
                 type="text"
                 placeholder="separate by comma"
                 required={true}
+                onChange={(e) =>
+                  setData({ ...data, allergies: e.target.value })
+                }
               />
             </div>
 
@@ -230,16 +255,25 @@ const AddUser = () => {
                 type="text"
                 placeholder="separate by comma"
                 required={true}
+                onChange={(e) =>
+                  setData({ ...data, medications: e.target.value })
+                }
               />
             </div>
 
             {/* Blood Type */}
-            <Dropdown
+            {/* <Dropdown
               label="Blood Type:"
               placement="right"
               dismissOnClick={false}
             >
-              <fieldset className="flex flex-col gap-4" id="radio">
+              <fieldset
+                className="flex flex-col gap-4"
+                id="radio"
+                onChange={(e) =>
+                  setData({ ...data, bloodType: e.target.value })
+                }
+              >
                 <legend className="text-[.9rem] text-black font-bold ">
                   Select your blood type
                 </legend>
@@ -289,7 +323,7 @@ const AddUser = () => {
                   <Label htmlFor="ab-neg">AB-</Label>
                 </div>
               </fieldset>
-            </Dropdown>
+            </Dropdown> */}
 
             {/* Weight */}
             <div>
@@ -301,6 +335,7 @@ const AddUser = () => {
                 type="text"
                 placeholder="in kg"
                 required={true}
+                onChange={(e) => setData({ ...data, weight: e.target.value })}
               />
             </div>
 
@@ -314,18 +349,23 @@ const AddUser = () => {
                 type="text"
                 placeholder="in cm"
                 required={true}
+                onChange={(e) => setData({ ...data, height: e.target.value })}
               />
             </div>
 
             {/* Languages */}
-            <div className="flex flex-col gap-4" id="checkbox">
+            <div
+              className="flex flex-col gap-4"
+              id="checkbox"
+              onClick={(e) => setData({ ...data, languages: e.target.value })}
+            >
               <Label>Languages:</Label>
               <div className="flex items-center gap-2">
-                <Checkbox id="english" />
+                <Checkbox id="english" value="english" />
                 <Label htmlFor="english">English</Label>
               </div>
               <div className="flex items-center gap-2">
-                <Checkbox id="deutsch" />
+                <Checkbox id="deutsch" value="deutsch" />
                 <Label htmlFor="deutsch">Deutsch</Label>
               </div>
               <div className="flex items-center gap-2">
